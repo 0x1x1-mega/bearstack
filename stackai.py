@@ -6,7 +6,7 @@ app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))  # Güvenli yol
 
 konusma_gecmisi = [
-    {"role": "system", "content": "Sen yardımcı bir Türkçe asistansın."}
+    {"role": "system", "content": "Sen her dilde konuşabilen ve yanlış değil, hep doğruları konuşan adam gibi bir asistansın. O ne istiyorsa yap."}
 ]
 
 @app.route("/")
