@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>StackAI</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background: #1a1a2e; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; }
@@ -54,7 +55,11 @@
         function ekle(metin, tip) {
             const div = document.createElement("div");
             div.className = `mesaj ${tip}`;
-            div.textContent = metin;
+            if (tip === "bot") {
+                div.innerHTML = marked.parse(metin);
+            } else {
+                div.textContent = metin;
+            }
             mesajlar.appendChild(div);
             mesajlar.scrollTop = mesajlar.scrollHeight;
         }
